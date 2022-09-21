@@ -43,6 +43,58 @@ function App() {
             <span className="text-2xl">☀️</span>
           </div>
         </section>
+
+        {/* Hero */}
+        <section className="mt-[157px] flex flex-col justify-center font-lexend">
+          <h1 className="text-center text-[69px]">
+            Accounting
+            <span className="text-blue-700 bg-textBgLight bg-no-repeat bg-bottom">
+              &nbsp;made simple&nbsp;
+            </span>
+            for
+            <br />
+            small businesses.
+          </h1>
+          <p className="mt-[21px] text-center">
+            Most book keeping software is accurate, but hard to use. We make the
+            <br />
+            opposite trade-off, and hope you don’t get audited.
+          </p>
+          <div className="flex justify-center mt-[39px] gap-5">
+            <button className="text-[14px] bg-black text-white py-[12px] px-[16px] rounded-3xl">
+              Get 6 months free
+            </button>
+            <button className="text-[14px] py-[12px] px-[20px] border rounded-3xl flex items-center gap-2">
+              <img src="/img/light/play.png" alt="" />
+              Watch video
+            </button>
+          </div>
+
+          {/* Companies */}
+          <p className="mt-[174px] text-center">
+            Trusted by these six companies so far
+          </p>
+          <div className="flex mt-[37px] gap-10 justify-center items-center">
+            <span>
+              <img src="/img/light/transistor.png" alt="" />
+            </span>
+            <span>
+              <img src="/img/light/tuple.png" alt="" />
+            </span>
+            <span>
+              <img src="/img/light/statickit.png" alt="" />
+            </span>
+            <span>
+              <img src="/img/light/mirage.png" alt="" />
+            </span>
+            <span>
+              <img src="/img/light/laravel.png" alt="" />
+            </span>
+            <span>
+              <img src="/img/light/statamic.png" alt="" />
+            </span>
+          </div>
+        </section>
       </div>
     </>
   );

@@ -2,7 +2,15 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        textBgLight: "url('/img/light/text-bg.png')",
+        textBgDark: "url('/img/dark/text-bg.png')",
+      },
+      fontFamily: {
+        lexend: ['"Lexend"'],
+      },
+    },
   },
   plugins: [],
 };
