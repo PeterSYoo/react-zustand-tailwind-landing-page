@@ -9,7 +9,7 @@ const useKey = (key: any, cb: any) => {
 
   useEffect(() => {
     const handle = (e: any) => {
-      if (e.metaKey && e.key === key) {
+      if ((e.metaKey && e.key === key) || (e.ctrlKey && e.key === key)) {
         callbackRef.current(e);
       }
     };

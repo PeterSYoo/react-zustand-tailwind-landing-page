@@ -9,11 +9,15 @@ function App() {
   const { openSearch, setOpenSearch } = useSearchModal();
   const toggleTheme = useThemeStore((state: any) => state.toggleTheme);
   const dark = document.querySelector('html[class*="dark"]');
-  const handleKeys = () => {
-    console.log('command + k is pressed');
+  const handleK = () => {
+    console.log('ctrl/command + k is pressed');
+  };
+  const handleF = () => {
+    console.log('ctr/command + f is pressed');
   };
 
-  useKey('k', handleKeys);
+  useKey('k', handleK);
+  useKey('f', handleF);
   useTheme();
 
   return (
