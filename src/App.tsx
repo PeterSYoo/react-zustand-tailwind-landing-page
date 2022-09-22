@@ -1,7 +1,14 @@
+import './App.css';
+import useThemeStore from './stores/useThemeStore';
+import { useTheme } from './hooks/useTheme';
+
 function App() {
+  const toggleTheme = useThemeStore((state: any) => state.toggleTheme);
+  useTheme();
+
   return (
     <>
-      <div className="max-w-[1680px] px-[250px] mx-auto">
+      <div className="max-w-[1680px] px-[250px] bg-white dark:bg-[#2E3643] dark:text-white mx-auto">
         {/* Header - Nav */}
         <section className="flex justify-between mt-[38px]">
           <div className="flex items-center gap-16">
@@ -40,7 +47,9 @@ function App() {
             <button className="bg-blue-600 text-white text-xs py-[12px] px-[14px] rounded-3xl">
               Get started today
             </button>
-            <span className="text-2xl">☀️</span>
+            <button onClick={toggleTheme} type="button" className="text-2xl">
+              ☀️
+            </button>
           </div>
         </section>
 
