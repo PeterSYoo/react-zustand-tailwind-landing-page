@@ -1,14 +1,19 @@
 import './App.css';
 import useThemeStore from './stores/useThemeStore';
 import { useTheme } from './hooks/useTheme';
-import { useState } from 'react';
 import Search from './components/search.components';
 import useSearchModal from './hooks/useSearchModal';
+import useKey from './hooks/useKey';
 
 function App() {
   const { openSearch, setOpenSearch } = useSearchModal();
   const toggleTheme = useThemeStore((state: any) => state.toggleTheme);
   const dark = document.querySelector('html[class*="dark"]');
+  const handleKeys = () => {
+    console.log('command + k is pressed');
+  };
+
+  useKey('k', handleKeys);
   useTheme();
 
   return (
@@ -16,7 +21,7 @@ function App() {
       <Search open={openSearch} onClose={() => setOpenSearch(false)} />
       <div className="max-w-[1680px] px-[250px] mx-auto">
         {/* Header - Nav */}
-        <section className="flex justify-between mt-[38px]">
+        <section className="flex justify-between pt-[38px]">
           <div className="flex items-center gap-16">
             <div className="flex items-center gap-3">
               {dark ? (

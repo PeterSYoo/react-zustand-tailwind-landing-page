@@ -7,8 +7,8 @@ const Search = ({ open, onClose }: Modal) => {
   if (!open) return null;
 
   return (
-    <section onClick={onClose}>
-      <div className="fixed w-full h-full z-50 bg-white bg-opacity-80 flex justify-center pt-[160px]">
+    <section onClick={onClose} className="">
+      <div className="fixed bg-gray-500 bg-opacity-70 h-full w-full z-50 flex justify-center pt-[200px]">
         <div
           onClick={(e) => {
             e.stopPropagation();
@@ -27,7 +27,7 @@ const Search = ({ open, onClose }: Modal) => {
               placeholder="Email"
               className="w-full text-[24px] bg-transparent text-white"
             />
-            <span className="text-gray-300 text-[12px] w-[40px] dark:text-black">
+            <span className="text-gray-300 text-[12px] w-[40px] dark:text-white">
               ⌘ + F
             </span>
           </div>
