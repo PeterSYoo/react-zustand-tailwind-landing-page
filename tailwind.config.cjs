@@ -11,6 +11,9 @@ module.exports = {
       fontFamily: {
         lexend: ['"Lexend"'],
       },
+      colors: {
+        teal: '#78FFF7',
+      },
     },
   },
   plugins: [],
