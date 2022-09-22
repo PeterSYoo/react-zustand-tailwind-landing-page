@@ -1,14 +1,19 @@
 import './App.css';
 import useThemeStore from './stores/useThemeStore';
 import { useTheme } from './hooks/useTheme';
+import { useState } from 'react';
+import Search from './components/search.components';
+import useSearchModal from './hooks/useSearchModal';
 
 function App() {
+  const { openSearch, setOpenSearch } = useSearchModal();
   const toggleTheme = useThemeStore((state: any) => state.toggleTheme);
   const dark = document.querySelector('html[class*="dark"]');
   useTheme();
 
   return (
     <>
+      <Search open={openSearch} onClose={() => setOpenSearch(false)} />
       <div className="max-w-[1680px] px-[250px] mx-auto">
         {/* Header - Nav */}
         <section className="flex justify-between mt-[38px]">
@@ -32,8 +37,11 @@ function App() {
             </ul>
           </div>
           <div className="flex items-center gap-8">
-            <div className="w-[202px] bg-gray-500 dark:bg-teal dark:opacity-50 pt-[6px] pb-[10px] px-[16px] rounded-xl flex items-center gap-2">
-              <span className="-mb-1">
+            <button
+              onClick={() => setOpenSearch(true)}
+              className="w-[202px] bg-gray-500 dark:bg-teal dark:opacity-50 px-[16px] py-[12px] rounded-xl flex justify-between items-center gap-2"
+            >
+              <span className="">
                 {dark ? (
                   <img
                     src="/img/light/magnifying.png"
@@ -50,16 +58,10 @@ function App() {
                   />
                 )}
               </span>
-              <span className="">
-                <input
-                  type="text"
-                  className="w-full text-[14px] bg-gray-500 dark:bg-teal text-white"
-                />
-              </span>
-              <span className="text-gray-300 text-[10px] w-[40px] dark:text-black">
+              <span className="text-gray-300 text-[12px] w-[40px] dark:text-black">
                 ⌘ + k
               </span>
-            </div>
+            </button>
             <button className="text-[14px] dark:text-teal">Sign in</button>
             <button className="bg-blue-600 text-white text-[14px] py-[12px] px-[14px] rounded-3xl dark:bg-teal dark:text-black">
               Get started today
