@@ -10,10 +10,10 @@ function App() {
   const toggleTheme = useThemeStore((state: any) => state.toggleTheme);
   const dark = document.querySelector('html[class*="dark"]');
   const handleK = () => {
-    console.log('ctrl/command + k is pressed');
+    setOpenSearch(true);
   };
   const handleF = () => {
-    console.log('ctr/command + f is pressed');
+    setOpenSearch(false);
   };
 
   useKey('k', handleK);
