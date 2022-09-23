@@ -1,13 +1,18 @@
+import useSearchStore from '../stores/useSearchStore';
+
 interface Modal {
   open: boolean;
   onClose: () => void;
 }
 
-const Search = ({ open, onClose }: Modal) => {
+const Search = () => {
+  const setOpenSearch = useSearchStore((state: any) => state.setOpenSearch);
+  const open = useSearchStore((state: any) => state.openSearch);
+
   if (!open) return null;
 
   return (
-    <section onClick={onClose} className="">
+    <section onClick={() => setOpenSearch(false)} className="">
       <div className="fixed bg-gray-500 bg-opacity-70 h-full w-full z-50 flex justify-center pt-[200px]">
         <div
           onClick={(e) => {

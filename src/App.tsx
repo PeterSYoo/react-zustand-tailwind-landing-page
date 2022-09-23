@@ -2,18 +2,19 @@ import './App.css';
 import useThemeStore from './stores/useThemeStore';
 import { useTheme } from './hooks/useTheme';
 import Search from './components/search.components';
-import useSearchModal from './hooks/useSearchModal';
 import useKey from './hooks/useKey';
+import useSearchStore from './stores/useSearchStore';
 
 function App() {
-  const { openSearch, setOpenSearch } = useSearchModal();
+  const setOpenSearch = useSearchStore((state: any) => state.setOpenSearch);
+
   const toggleTheme = useThemeStore((state: any) => state.toggleTheme);
   const dark = document.querySelector('html[class*="dark"]');
   const handleK = () => {
-    setOpenSearch(true);
+    setOpenSearch();
   };
   const handleF = () => {
-    setOpenSearch(false);
+    setOpenSearch();
   };
 
   useKey('k', handleK);
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Search open={openSearch} onClose={() => setOpenSearch(false)} />
+      <Search />
       <div className="max-w-[1680px] px-[250px] mx-auto">
         {/* Header - Nav */}
         <section className="flex justify-between pt-[38px]">
